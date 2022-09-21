@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    table, th, td {
+      border:1px solid black;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: larger;
+    }
+    form {
+      text-align: center;
+      font-size: larger;
+    }
+
+    .b1{
+        font-size:x-large;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        background-color: rgba(0,255,255);
+        border-radius: 7px;
+        cursor: pointer;
+        color: white;
+        transition: 0.17s;
+      }
+    .b1:hover{
+        background-color: rgba(0,0,255,75%);
+      }
+    
+   </style>
+   <title>PTU GPA CALCULATOR</title> 
+</head>
+
+<body>
+  
+  <h1 style="text-align: center;">
+    PUDUCHERRY TECHNOLOGICAL UNIVERSITY GPA CALCULATOR
+  </h1>
+
+  <h2 style="text-align: center;"> GROUP-I</h2>
+
+  <table>
+    <tr>
+      <th>Grade</th>
+      <th>Grade points</th>
+    </tr>
+    <tr>
+      <th>S</th>
+      <th>10</th>
+    </tr>
+    <tr>
+      <th>A</th>
+      <th>9</th>
+    </tr>
+    <tr>
+      <th>B</th>
+      <th>8</th>
+    </tr>
+    <tr>
+      <th>C</th>
+      <th>7</th>
+    </tr>
+    <tr>
+      <th>D</th>
+      <th>6</th>
+    </tr>
+    <tr>
+      <th>E</th>
+      <th>5</th>
+    </tr>
+    <tr>
+      <th>F</th>
+      <th>0</th>
+    </tr>
+  </table>
+
+  <form onsubmit="calc()" method="post">
+
+    <p> Enter grade points for each subject </p><br>
+    
+    <label for="ma201">MA-201 (Mathematics - I)</label><br>
+    <input type="number" name="ma201" id="ma201"><br>
+    <label for="ph201">PH-201 (Physics)</label><br>
+    <input type="number" name="ph201" id="ph201"><br>
+    <label for="cy201">CY-201 (Chemistry)</label><br>
+    <input type="number" name="cy201" id="cy201"><br>
+    <label for="hs201">HS-201 (English for Communication)</label><br>
+    <input type="number" name="hs201" id="hs201"><br>
+    <label for="me201">ME-201 (Workshop and Manufacturing Practice)</label><br>
+    <input type="number" name="me201" id="me201"><br>
+    <label for="ph202">PH-202 (Physics Laboratory)</label><br>
+    <input type="number" name="ph202" id="ph202"><br>
+    <label for="cy202">CY-202 (Chemistry Laboratory)</label><br>
+    <input type="number" name="cy202" id="cy202">
+    <input type="submit" class="b1">
+
+  </form>
+
+  <script>
+
+    function calc(){
+      var ma1,ph1,cy1,hs1,me1,ph2,cy2,result,res;
+      const tc = 19.5;
+      ma1 = parseInt(document.getElementById('ma201').value, 10);
+      ph1 = parseInt(document.getElementById('ph201').value, 10);
+      cy1 = parseInt(document.getElementById('cy201').value, 10);
+      hs1 = parseInt(document.getElementById('hs201').value, 10);
+      me1 = parseInt(document.getElementById('me201').value, 10);
+      ph2 = parseInt(document.getElementById('ph202').value, 10);
+      cy2 = parseInt(document.getElementById('cy202').value, 10);
+      result=(ma1*4 + ph1*4 + cy1*4 + hs1*3 + me1*1.5 + ph2*1.5 + cy2*1.5)/tc;
+      res = result.toFixed(3);
+      alert(`Your GPA is ${res}`);
+    }
+
+  </script>
+</body>
+
+</html>
