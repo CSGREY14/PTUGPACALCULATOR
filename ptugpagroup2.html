@@ -78,7 +78,7 @@
     </tr>
   </table>
 
-  <form method="post">
+  <form method="post" action="javascript:calc()">
 
     <p> Enter grade points for each subject </p><br>
     <label for="ma202">MA-202 (Mathematics - II)</label><br>
@@ -99,8 +99,6 @@
 
   <script>
 
-    const listener = document.getElementById("submit");
-    listener.addEventListener("click", calc);
 
     function calc(){
       var ma2,ee1,cs1,me2,ee2,cs2,result,res;
