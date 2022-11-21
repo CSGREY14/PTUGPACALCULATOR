@@ -78,7 +78,7 @@
     </tr>
   </table>
 
-  <form method="post">
+  <form method="post" action="javascript:calc()">
 
     <p> Enter grade points for each subject </p><br>
     
@@ -102,9 +102,6 @@
 
   <script>
 
-    const listener = document.getElementById("submit");
-    listener.addEventListener("click", calc);
-    $("form").submit(function(event) {event.preventDefault()});
     
     function calc(){
       var ma1,ph1,cy1,hs1,me1,ph2,cy2,result,res;
