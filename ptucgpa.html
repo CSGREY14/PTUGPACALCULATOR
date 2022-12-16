@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    
+    form {
+      text-align: center;
+      font-size: 25px;
+    }
+
+    .b1{
+        font-size: 40px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        background-color: rgba(0,255,255);
+        border-radius: 7px;
+        cursor: pointer;
+        color: white;
+        transition: 0.17s;
+      }
+    .b1:hover{
+        background-color: rgba(0,0,255,75%);
+      }
+    
+   </style>
+   <title>PTU CGPA CALCULATOR</title> 
+</head>
+
+<body>
+  
+  <h1 style="text-align: center;">
+    PUDUCHERRY TECHNOLOGICAL UNIVERSITY CGPA CALCULATOR
+  </h1>
+
+  <h2 style="text-align: center;"> YEAR-I</h2>
+
+  <form method="post" action="javascript:calc()">
+
+    <p> Enter grade for each subject </p><br>
+    
+    <label for="ma201">MA-201 (Mathematics - I)</label><br>
+    <input type="text" name="ma201" id="ma201"><br>
+    <label for="ph201">PH-201 (Physics)</label><br>
+    <input type="text" name="ph201" id="ph201"><br>
+    <label for="cy201">CY-201 (Chemistry)</label><br>
+    <input type="text" name="cy201" id="cy201"><br>
+    <label for="hs201">HS-201 (English for Communication)</label><br>
+    <input type="text" name="hs201" id="hs201"><br>
+    <label for="me201">ME-201 (Workshop and Manufacturing Practice)</label><br>
+    <input type="text" name="me201" id="me201"><br>
+    <label for="ph202">PH-202 (Physics Laboratory)</label><br>
+    <input type="text" name="ph202" id="ph202"><br>
+    <label for="cy202">CY-202 (Chemistry Laboratory)</label><br>
+    <input type="text" name="cy202" id="cy202"><br>
+    <label for="ma202">MA-202 (Mathematics - II)</label><br>
+    <input type="text" name="ma202" id="ma202"><br>
+    <label for="ee201">EE-201 (Basic Electrical Engineering)</label><br>
+    <input type="text" name="ee201" id="ee201"><br>
+    <label for="cs201">CS-201 (Programming for Problem Solving)</label><br>
+    <input type="text" name="cs201" id="cs201"><br>
+    <label for="me202">ME-202 (Engineering Graphics and Computer Aided Drawing)</label><br>
+    <input type="text" name="me202" id="me202"><br>
+    <label for="ee202">EE-202 (Basic Electrical Engineering Laboratory)</label><br>
+    <input type="text" name="ee202" id="ee202"><br>
+    <label for="cs202">CS-202 (Programming Laboratory)</label><br>
+    <input type="text" name="cs202" id="cs202">
+    <button class="b1" id="submit">SUBMIT</button>
+
+  </form>
+
+  <script>
+
+    
+    function calc(){
+      var ma1,ph1,cy1,hs1,me1,ph2,cy2,ma2,ee1,cs1,me2,ee2,cs2,result,res;
+      var ma1g,ph1g,cy1g,hs1g,me1g,ph2g,cy2g,ma2g,ee1g,cs1g,me2g,ee2g,cs2g;
+      const tc = 36.5;
+
+      ma1g=document.getElementById('ma201').value;
+      ph1g=document.getElementById('ph201').value;
+      cy1g=document.getElementById('cy201').value;
+      hs1g=document.getElementById('hs201').value;
+      me1g=document.getElementById('me201').value;
+      ph2g=document.getElementById('ph202').value;
+      cy2g=document.getElementById('cy202').value;
+      ma2g = document.getElementById('ma202').value;
+      ee1g = document.getElementById('ee201').value;
+      cs1g = document.getElementById('cs201').value;
+      me2g = document.getElementById('me202').value;
+      ee2g = document.getElementById('ee202').value;
+      cs2g = document.getElementById('cs202').value;
+
+      ma1=grade(ma1g);
+      ph1=grade(ph1g);
+      cy1=grade(cy1g);
+      hs1=grade(hs1g);
+      me1=grade(me1g);
+      ph2=grade(ph2g);
+      cy2=grade(cy2g);
+      ma2=grade(ma2g);
+      ee1=grade(ee1g);
+      cs1=grade(cs1g);
+      me2=grade(me2g);
+      ee2=grade(ee2g);
+      cs2=grade(cs2g);
+
+      result=(ma1*4 + ph1*4 + cy1*4 + hs1*3 + me1*1.5 + ph2*1.5 + cy2*1.5 + ma2*4 + ee1*4 + cs1*3 + me2*3 + ee2*1.5 + cs2*1.5)/tc;
+      res = result.toFixed(3);
+      alert(`Your CGPA is ${res}`);
+    }
+
+    function grade(a1){
+      switch(a1){
+        case "S": 
+        case "s":
+          return 10;
+          break;
+        case "A": 
+        case "a":
+          return 9;
+          break;
+        case "B": 
+        case "b":
+          return 8;
+          break;
+        case "C": 
+        case "c":
+          return 7;
+          break;
+        case "D": 
+        case "d":
+          return 6;
+          break;
+        case "E": 
+        case "e": 
+          return 5;
+          break;
+        default: 
+          return 0;
+          break;          
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>
