@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+
+    form {
+      text-align: center;
+      font-size: 25px;
+    }
+
+    .b1{
+        font-size: 40px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        background-color: rgba(0,255,255);
+        border-radius: 7px;
+        cursor: pointer;
+        color: white;
+        transition: 0.17s;
+      }
+    .b1:hover{
+        background-color: rgba(0,0,255,75%);
+      }
+    
+   </style>
+   <title>PTU GPA CALCULATOR</title> 
+</head>
+
+<body>
+  
+  <h1 style="text-align: center;">
+    PUDUCHERRY TECHNOLOGICAL UNIVERSITY GPA CALCULATOR
+  </h1>
+
+  <h2 style="text-align: center;"> SEM 8-IT</h2>
+
+  <form method="post" action="javascript:calc()">
+
+    <p> Enter grade for each subject </p><br>
+    <label for="swo01">SWOXX (Open Elective through SWAYAM)</label><br>
+    <input type="text" name="swo01" id="swo01"><br>
+    <label for="swo02">SWOXX (Open Elective through SWAYAM)</label><br>
+    <input type="text" name="swo02" id="swo02"><br>
+    <label for="it231">IT231 (Comprehensive Test)</label><br>
+    <input type="text" name="it231" id="it231"><br>
+    <label for="it232">IT232 (Internship)</label><br>
+    <input type="text" name="it232" id="it232"><br>
+    <label for="it233">IT233 (Project Work)</label><br>
+    <input type="text" name="it233" id="it233"><br>
+
+    <p>Do you have honors/minors?</p>
+    <input type="radio" name="hmc" id="blb" value="yes"> Yes
+    <input type="radio" name="hmc" value="no"> No <br><br>
+    <label for="h/m">Enter your honors/minors grade(if any):</label><br>
+    <input type="text" name="hm" id="hm"><br>
+
+    <p>Do you have open elective course?</p>
+    <input type="radio" name="oecc" id="brb" value="yes"> Yes
+    <input type="radio" name="oecc" value="no"> No <br><br>
+    <label for="oec">Enter your open elective grade(if any):</label><br>
+    <input type="text" name="oec" id="oec"><br>
+
+    <button class="b1" id="submit">SUBMIT</button>
+
+  </form>
+
+  <script>
+
+
+    function calc(){
+      var sub1,sub2,sub3,sub4,sub5,res,result,ham,oe;
+      var sub1g,sub2g,sub3g,sub4g,sub5g,sub6g,sub7g,sub8g,hamg,oeg;
+      var tc = 15.0;
+      sub1g= document.getElementById('swo01').value;
+      sub2g = document.getElementById('swo02').value;
+      sub3g = document.getElementById('it231').value;
+      sub4g = document.getElementById('it232').value;
+      sub5g = document.getElementById('it233').value;
+      hamg = document.getElementById('hm').value;
+      oeg = document.getElementById('oec').value;
+    
+
+      sub1=grade(sub1g);
+      sub2=grade(sub2g);
+      sub3=grade(sub3g);
+      sub4=grade(sub4g);
+      sub5=grade(sub5g);
+      ham=grade(hamg);
+      oe=grade(oeg);
+
+      if(document.getElementById('blb').checked){
+        tc+=4;
+      }
+      else
+      {
+        ham=0;
+      }
+      
+      if(document.getElementById('brb').checked){
+        tc+=3;
+      }
+      else
+      {
+        oe=0;
+      }
+
+
+      result=(sub1*2 + sub2*2 + sub3*1 +sub4*2+ sub5*8 + ham*4 + oe*3)/tc;
+      res = result.toFixed(3);
+      alert(`Your GPA is ${res}`);
+    }
+
+    function grade(a1){
+      switch(a1){
+        case "S": 
+        case "s":
+          return 10;
+          break;
+        case "A": 
+        case "a":
+          return 9;
+          break;
+        case "B": 
+        case "b":
+          return 8;
+          break;
+        case "C": 
+        case "c":
+          return 7;
+          break;
+        case "D": 
+        case "d":
+          return 6;
+          break;
+        case "E": 
+        case "e": 
+          return 5;
+          break;
+        default: 
+          return 0;
+          break;          
+      }
+    }
+
+  </script>
+</body>
+
+</html>

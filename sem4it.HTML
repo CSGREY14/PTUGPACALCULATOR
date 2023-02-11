@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    
+    form {
+      text-align: center;
+      font-size: 25px;
+    }
+
+    .b1{
+        font-size: 40px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        background-color: rgba(0,255,255);
+        border-radius: 7px;
+        cursor: pointer;
+        color: white;
+        transition: 0.17s;
+      }
+    .b1:hover{
+        background-color: rgba(0,0,255,75%);
+      }
+    
+   </style>
+   <title>PTU GPA CALCULATOR</title> 
+</head>
+
+<body>
+  
+  <h1 style="text-align: center;">
+    PUDUCHERRY TECHNOLOGICAL UNIVERSITY GPA CALCULATOR
+  </h1>
+
+  <h2 style="text-align: center;"> SEM 4-IT</h2>
+
+  <form method="post" action="javascript:calc()">
+
+    <p> Enter grade for each subject </p><br>
+    <label for="ma206">MA206 (Mathematics for Computing)</label><br>
+    <input type="text" name="ma206" id="ma206"><br>
+    <label for="it207">IT207 (Operating Systems)</label><br>
+    <input type="text" name="it207" id="it207"><br>
+    <label for="it208">IT208 (Computer Architecture)</label><br>
+    <input type="text" name="it208" id="it208"><br>
+    <label for="it209">IT209 (Microprocessors and Applications)</label><br>
+    <input type="text" name="it209" id="it209"><br>
+    <label for="it210">IT210 (Design and Analysis of Algorithm)</label><br>
+    <input type="text" name="it210" id="it210"><br>
+    <label for="it211">IT211 (Operating Systems Laboratory)</label><br>
+    <input type="text" name="it211" id="it211"><br>
+    <label for="it212">IT212 (Microprocessor Laboratory)</label><br>
+    <input type="text" name="it212" id="it212"><br>
+    <label for="it213">IT213 (Design and Analysis of Algorithms Laboratory)</label><br>
+    <input type="text" name="it213" id="it213">
+
+    <p>Do you have honors/minors?</p>
+    <input type="radio" name="hmc" id="blb" value="yes"> Yes
+    <input type="radio" name="hmc" value="no"> No <br><br>
+    <label for="h/m">Enter your honors/minors grade(if any):</label><br>
+    <input type="text" name="hm" id="hm"><br>
+
+    <p>Do you have open elective course?</p>
+    <input type="radio" name="oecc" id="brb" value="yes"> Yes
+    <input type="radio" name="oecc" value="no"> No <br><br>
+    <label for="oec">Enter your open elective grade(if any):</label><br>
+    <input type="text" name="oec" id="oec"><br>
+
+    <button class="b1" id="submit">SUBMIT</button>
+
+  </form>
+
+  <script>
+
+
+    function calc(){
+      var ma3,os,ca,mpa,daa,osl,ml,daal,res,result,ham,oe;
+      var ma3g,osg,cag,mpag,daag,oslg,mlg,daalg,hamg,oeg;
+      var tc = 20.5 ;
+      ma3g= document.getElementById('ma206').value;
+      osg = document.getElementById('it207').value;
+      cag = document.getElementById('it208').value;
+      mpag = document.getElementById('it209').value;
+      daag = document.getElementById('it210').value;
+      oslg= document.getElementById('it211').value;
+      mlg = document.getElementById('it212').value;
+      daalg= document.getElementById('it213').value;
+      hamg = document.getElementById('hm').value;
+      oeg = document.getElementById('oec').value;
+    
+
+      ma3=grade(ma3g);
+      os=grade(osg);
+      ca=grade(cag);
+      mpa=grade(mpag);
+      daa=grade(daag);
+      osl=grade(oslg);
+      ml=grade(mlg); 
+      daal=grade(daalg);
+      ham=grade(hamg);
+      oe=grade(oeg);
+
+      if(document.getElementById('blb').checked){
+        tc+=4;
+      }
+      else
+      {
+        ham=0;
+      }
+      
+      if(document.getElementById('brb').checked){
+        tc+=3;
+      }
+      else
+      {
+        oe=0;
+      }
+
+
+      result=(ma3*4 + os*3 + ca*3 +mpa*3+ daa*3+ osl*1.5 + ml*1.5 + daal*1.5 + ham*4 + oe*3)/tc;
+      res = result.toFixed(3);
+      alert(`Your GPA is ${res}`);
+    }
+
+    function grade(a1){
+      switch(a1){
+        case "S": 
+        case "s":
+          return 10;
+          break;
+        case "A": 
+        case "a":
+          return 9;
+          break;
+        case "B": 
+        case "b":
+          return 8;
+          break;
+        case "C": 
+        case "c":
+          return 7;
+          break;
+        case "D": 
+        case "d":
+          return 6;
+          break;
+        case "E": 
+        case "e": 
+          return 5;
+          break;
+        default: 
+          return 0;
+          break;          
+      }
+    }
+
+  </script>
+</body>
+
+</html>
